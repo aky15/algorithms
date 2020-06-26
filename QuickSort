@@ -1,0 +1,15 @@
+    void quicksort(vector<int> & nums,int l,int r){
+        if (l>=r) return;
+        int med = (r+l+1)/2;
+        swap(nums[med],nums[r]);
+        int i = l-1;
+        for(int j=l;j<r;j++){
+            if (nums[j]<=nums[r]){
+                swap(nums[++i],nums[j]);
+            }
+        }
+        swap(nums[i+1],nums[r]);
+        quicksort(nums,l,i);
+        quicksort(nums,i+2,r);
+        return;
+    }
